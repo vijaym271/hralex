@@ -1,4 +1,6 @@
+import 'package:college_bag/pages/home_page.dart';
 import 'package:college_bag/utils/color_utils.dart';
+import 'package:college_bag/widgets/profile_widget.dart';
 import 'package:flutter/material.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
@@ -25,6 +27,8 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    String? currentRoute = ModalRoute.of(context)!.settings.name!;
+    print('currentRoute -->${currentRoute}');
     return AppBar(
       title: Text(
         title,
@@ -32,12 +36,17 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       ),
       centerTitle: true,
       leading: leadingWidget ??
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back_ios),
-          ),
+          (currentRoute == '/'
+              ? const ProfileWidget()
+              : IconButton(
+                  onPressed: () {
+                    // ['/jobs', '/career', '/podcast', '/more'].contains(currentRoute)
+                    // ? Navigator.pushNamedAndRemoveUntil(
+                    //         context, '/', ModalRoute.withName('/'))
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(Icons.arrow_back_ios),
+                )),
       actions: actionsWidget,
       elevation: 0.0,
       backgroundColor: backgroundColor,
