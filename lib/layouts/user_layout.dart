@@ -25,6 +25,7 @@ class _UserLayoutState extends State<UserLayout>
   ];
 
   late final List<GlobalKey<NavigatorState>> navigatorKeys;
+  late final navigatorKey;
   late final List<AnimationController> destinationFaders;
   late final List<Widget> destinationViews;
   int selectedIndex = 0;
@@ -62,6 +63,7 @@ class _UserLayoutState extends State<UserLayout>
   @override
   void initState() {
     super.initState();
+    navigatorKey = GlobalKey();
     navigatorKeys = List<GlobalKey<NavigatorState>>.generate(
         allDestinations.length, (int index) => GlobalKey()).toList();
     destinationFaders = List<AnimationController>.generate(
@@ -93,6 +95,8 @@ class _UserLayoutState extends State<UserLayout>
       onWillPop: () async {
         final NavigatorState navigator =
             navigatorKeys[selectedIndex].currentState!;
+        print('navigator -->${navigator}');
+        print('navigator.canPop() -->${navigator.canPop()}');
         if (!navigator.canPop()) {
           return true;
         }
@@ -120,35 +124,29 @@ class _UserLayoutState extends State<UserLayout>
             }).toList(),
           ),
         ),
-        bottomNavigationBar: Theme(
-          data: Theme.of(context).copyWith(
-            canvasColor: Colors.red,
-            primaryColor: Colors.red,
-          ),
-          child: NavigationBar(
-            backgroundColor: ColorUtils.white,
-            height: 60.0,
-            selectedIndex: selectedIndex,
-            onDestinationSelected: (int index) {
-              setState(() {
-                selectedIndex = index;
-              });
-            },
-            destinations: allDestinations.map((Destination destination) {
-              return NavigationDestination(
-                selectedIcon: FaIcon(
-                  destination.icon,
-                  size: 20.0,
-                  color: ColorUtils.white,
-                ),
-                icon: FaIcon(
-                  destination.icon,
-                  size: 20.0,
-                ),
-                label: destination.title,
-              );
-            }).toList(),
-          ),
+        bottomNavigationBar: NavigationBar(
+          backgroundColor: ColorUtils.white,
+          height: 60.0,
+          selectedIndex: selectedIndex,
+          onDestinationSelected: (int index) {
+            setState(() {
+              selectedIndex = index;
+            });
+          },
+          destinations: allDestinations.map((Destination destination) {
+            return NavigationDestination(
+              selectedIcon: FaIcon(
+                destination.icon,
+                size: 20.0,
+                color: ColorUtils.white,
+              ),
+              icon: FaIcon(
+                destination.icon,
+                size: 20.0,
+              ),
+              label: destination.title,
+            );
+          }).toList(),
         ),
       ),
     );
@@ -187,9 +185,12 @@ class _DestinationViewState extends State<DestinationView> {
   }
 
   Widget setHomeRoutes(RouteSettings settings) {
+    print('settings.name -->${settings.name}');
     switch (settings.name) {
       case '/':
         return const HomePage();
+      case '/detail':
+        return const JobsPage();
       default:
         return renderErrorPage();
     }

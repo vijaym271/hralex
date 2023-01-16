@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Widget cardHeader({required String title, bool enableViewAll = true}) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12.0),
+      padding: const EdgeInsets.only(bottom: 12.0, right: 14.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -27,7 +27,9 @@ class _HomePageState extends State<HomePage> {
           Visibility(
             visible: enableViewAll,
             child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, '/detail');
+                },
                 child: const Text(
                   'View all',
                   style: TextStyle(color: ColorUtils.blue),
@@ -50,7 +52,10 @@ class _HomePageState extends State<HomePage> {
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               itemBuilder: (context, index) {
-                return const NotificationCard();
+                return NotificationCard(
+                  index: index,
+                  icon: Icons.notification_add,
+                );
               }),
         )
       ],
@@ -69,7 +74,9 @@ class _HomePageState extends State<HomePage> {
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               itemBuilder: (context, index) {
-                return const UpcomingEventsCard();
+                return UpcomingEventsCard(
+                  index: index,
+                );
               }),
         )
       ],
@@ -81,22 +88,13 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBarWidget(
         title: 'Home',
-        leadingWidget: Container(
-          margin: const EdgeInsets.all(9.0),
-          child: const CircleAvatar(
-            radius: 18,
-            child: ClipOval(
-              child: FlutterLogo(),
-            ),
-          ),
-        ),
         actionsWidget: [
           IconButton(
               onPressed: () {}, icon: const FaIcon(FontAwesomeIcons.bell))
         ],
       ),
       body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 14.0),
+        margin: const EdgeInsets.only(left: 14.0),
         child: ListView(
           children: [
             const SizedBox(

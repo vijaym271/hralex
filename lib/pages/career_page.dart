@@ -1,3 +1,4 @@
+import 'package:college_bag/widgets/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 class CareerPage extends StatefulWidget {
@@ -13,7 +14,12 @@ class _CareerPageState extends State<CareerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Career Page')),
+      appBar: AppBarWidget(
+        title: 'Career',
+        actionsWidget: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.filter_alt_sharp))
+        ],
+      ),
       body: const Center(
         child: Text('Career Page'),
       ),

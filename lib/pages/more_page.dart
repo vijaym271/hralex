@@ -1,3 +1,4 @@
+import 'package:college_bag/widgets/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 class MorePage extends StatefulWidget {
@@ -13,7 +14,12 @@ class _MorePageState extends State<MorePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('More Page')),
+      appBar: AppBarWidget(
+        title: 'More',
+        actionsWidget: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.filter_alt_sharp))
+        ],
+      ),
       body: const Center(
         child: Text('More Page'),
       ),
