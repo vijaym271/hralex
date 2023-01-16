@@ -6,6 +6,8 @@ import 'package:college_bag/widgets/upcoming_events_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../widgets/score_page.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -14,6 +16,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Widget scoreHrAlex() {
+    return ScorePage();
+  }
+
   Widget cardHeader({required String title, bool enableViewAll = true}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0, right: 14.0),
@@ -97,6 +103,7 @@ class _HomePageState extends State<HomePage> {
         margin: const EdgeInsets.only(left: 14.0),
         child: ListView(
           children: [
+            scoreHrAlex(),
             const SizedBox(
               height: 18.0,
             ),
