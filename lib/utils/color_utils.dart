@@ -16,4 +16,6 @@ class ColorUtils {
   static const Color yellow = Colors.yellow;
   static const Color pink = Colors.pink;
   static const Color grey = Colors.grey;
+  static const Color appPurple = Color(0xff9363D0);
+  static const Color scaffold = Color(0xffF7F8FF);
 }

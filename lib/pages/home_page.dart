@@ -1,3 +1,4 @@
+import 'package:college_bag/pages/jobs_page.dart';
 import 'package:college_bag/utils/color_utils.dart';
 import 'package:college_bag/utils/font_utils.dart';
 import 'package:college_bag/widgets/app_bar_widget.dart';
@@ -28,7 +29,8 @@ class _HomePageState extends State<HomePage> {
             visible: enableViewAll,
             child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, '/detail');
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => JobsPage()));
                 },
                 child: const Text(
                   'View all',
@@ -86,8 +88,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorUtils.white,
       appBar: AppBarWidget(
         title: 'Home',
+        elevation: 0.0,
         actionsWidget: [
           IconButton(
               onPressed: () {}, icon: const FaIcon(FontAwesomeIcons.bell))
