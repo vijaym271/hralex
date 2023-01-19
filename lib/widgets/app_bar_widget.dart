@@ -1,4 +1,3 @@
-import 'package:college_bag/pages/home_page.dart';
 import 'package:college_bag/utils/color_utils.dart';
 import 'package:college_bag/widgets/profile_widget.dart';
 import 'package:flutter/material.dart';
@@ -10,9 +9,9 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       this.titleStyle,
       this.leadingWidget,
       this.actionsWidget,
-      this.elevation = 0.0,
+      this.elevation = 0.5,
       this.height = 50.0,
-      this.backgroundColor = Colors.transparent,
+      this.backgroundColor = ColorUtils.white,
       this.width = double.infinity})
       : super(key: key);
 
@@ -27,8 +26,8 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    String? currentRoute = ModalRoute.of(context)!.settings.name!;
-    print('currentRoute -->${currentRoute}');
+    String? currentRoute = ModalRoute.of(context)?.settings.name;
+    print('appbar currentRoute -->${currentRoute}');
     return AppBar(
       title: Text(
         title,
@@ -49,7 +48,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                   icon: const Icon(Icons.arrow_back_ios),
                 )),
       actions: actionsWidget,
-      elevation: 0.0,
+      elevation: elevation,
       backgroundColor: backgroundColor,
     );
   }
