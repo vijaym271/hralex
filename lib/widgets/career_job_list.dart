@@ -10,21 +10,52 @@ class CareerJobList extends StatefulWidget {
 }
 
 class _CareerJobListState extends State<CareerJobList> {
+  List<String> numberTruthList = [
+    "Software developers.",
+    "Team lead / Tech lead",
+    "UX / UI designers",
+    "Project manager",
+    "Scrum master"
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _isChecked = List<bool>.filled(numberTruthList.length, false);
+  }
+
+  late List<bool> _isChecked;
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 200.0,
-        padding: const EdgeInsets.all(8.0),
-        decoration: BoxDecoration(
-            color: ColorUtils.white,
-            borderRadius: BorderRadius.circular(5.0),
-            boxShadow: [
-              BoxShadow(
-                  color: ColorUtils.boxShadow.withOpacity(0.2),
-                  blurRadius: 1.5,
-                  spreadRadius: 0.1,
-                  offset: const Offset(1, 2)),
-            ]),
-        child: Text("kk"));
+      height: 200.0,
+      padding: const EdgeInsets.all(8.0),
+      decoration: BoxDecoration(
+          color: ColorUtils.white,
+          borderRadius: BorderRadius.circular(5.0),
+          boxShadow: [
+            BoxShadow(
+                color: ColorUtils.boxShadow.withOpacity(0.2),
+                blurRadius: 1.5,
+                spreadRadius: 0.1,
+                offset: const Offset(1, 2)),
+          ]),
+      child: ListView.builder(
+        itemCount: numberTruthList.length,
+        itemBuilder: (context, index) {
+          return CheckboxListTile(
+            title: Text(numberTruthList[index]),
+            value: _isChecked[index],
+            onChanged: (val) {
+              setState(
+                () {
+                  _isChecked[index] = val!;
+                },
+              );
+            },
+          );
+        },
+      ),
+    );
   }
 }
