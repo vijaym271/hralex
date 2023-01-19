@@ -1,4 +1,5 @@
 import 'package:college_bag/utils/color_utils.dart';
+import 'package:college_bag/utils/font_utils.dart';
 import 'package:college_bag/widgets/profile_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -31,8 +32,11 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(
         title,
-        style:
-            titleStyle ?? const TextStyle(color: ColorUtils.font, fontSize: 15),
+        style: titleStyle ??
+            TextStyle(
+                color: ColorUtils.font,
+                fontSize: FontUtils.fs16,
+                fontWeight: FontUtils.fwBold),
       ),
       centerTitle: true,
       leading: leadingWidget ??

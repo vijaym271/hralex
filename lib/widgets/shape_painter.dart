@@ -25,7 +25,7 @@ class TrianglePainter extends CustomPainter {
 
   Path getTrianglePath(double x, double y) {
     return Path()
-      ..moveTo(y + 15, y)
+      ..moveTo(y + 55, y)
       ..lineTo(x, 30)
       ..lineTo(x / 2, y)
       ..lineTo(x, y);
@@ -50,9 +50,9 @@ class CirclePainter extends CustomPainter {
     Paint paint = Paint()..color = color.withOpacity(0.05);
     canvas.drawArc(
       Rect.fromCenter(
-        center: Offset(120, size.width - 50),
-        height: size.height - 45,
-        width: size.width - 45,
+        center: Offset(158, size.width - 90),
+        height: size.height - 40,
+        width: size.width - 70,
       ),
       math.pi / 2,
       math.pi,
