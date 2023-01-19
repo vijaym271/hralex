@@ -22,16 +22,16 @@ class _ScorePageState extends State<ScorePage> {
       ),
       child: Column(
         children: [
-          Text("HRAlex Score",
+          const Text("HRAlex Score",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
-          Text("way to reach"),
-          SizedBox(height: 12),
+          const Text("way to reach"),
+          const SizedBox(height: 12),
           Stack(
             children: [
               Center(
                 child: Container(
-                  margin: EdgeInsets.only(top: 60),
-                  child: CircleAvatar(
+                  margin: const EdgeInsets.only(top: 60),
+                  child: const CircleAvatar(
                     radius: 32,
                     backgroundImage: NetworkImage("assets/images/user-ic.png"),
                   ),
@@ -39,8 +39,8 @@ class _ScorePageState extends State<ScorePage> {
               ),
               Center(
                 child: Container(
-                    padding:
-                        EdgeInsets.only(left: 18, right: 18, top: 4, bottom: 8),
+                    padding: const EdgeInsets.only(
+                        left: 18, right: 18, top: 4, bottom: 8),
                     decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -56,8 +56,8 @@ class _ScorePageState extends State<ScorePage> {
                         )
                       ],
                     ),
-                    margin: EdgeInsets.only(top: 115),
-                    child: Text(
+                    margin: const EdgeInsets.only(top: 115),
+                    child: const Text(
                       "70",
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w600),

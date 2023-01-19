@@ -33,9 +33,9 @@ class _TabBarWidgetState extends State<TabBarWidget>
     return Column(
       children: [
         Container(
-            height: 50.0,
+            height: 40.0,
             decoration: BoxDecoration(
-                color: ColorUtils.blue,
+                color: ColorUtils.primary,
                 borderRadius: BorderRadius.circular(30.0)),
             child: TabBar(
                 controller: _controller,
@@ -43,11 +43,12 @@ class _TabBarWidgetState extends State<TabBarWidget>
                     color: ColorUtils.white,
                     borderRadius: BorderRadius.circular(30.0)),
                 padding: const EdgeInsets.all(4.0),
-                labelColor: ColorUtils.blue,
+                labelColor: ColorUtils.primary,
                 unselectedLabelColor: ColorUtils.white,
                 labelStyle: TextStyle(
-                    fontSize: FontUtils.fs16, fontWeight: FontUtils.fwBold),
-                unselectedLabelStyle: TextStyle(fontSize: FontUtils.fs16),
+                  fontSize: FontUtils.fs14,
+                ),
+                unselectedLabelStyle: TextStyle(fontSize: FontUtils.fs14),
                 tabs: widget.tabs
                     .map((e) => Tab(
                           text: e,

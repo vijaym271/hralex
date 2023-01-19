@@ -17,5 +17,7 @@ class ColorUtils {
   static const Color pink = Colors.pink;
   static const Color grey = Colors.grey;
   static const Color appPurple = Color(0xff9363D0);
-  static const Color scaffold = Color(0xffF7F8FF);
+  static const Color scaffold = Color(0xffFAFAFA);
+  static const Color profilePrograBar = Color(0xff00B8FF);
+  static const Color boxShadow = Color(0xffC0C0C0);
 }

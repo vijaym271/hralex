@@ -9,9 +9,9 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       this.titleStyle,
       this.leadingWidget,
       this.actionsWidget,
-      this.elevation = 0.5,
+      this.elevation = 0.0,
       this.height = 50.0,
-      this.backgroundColor = ColorUtils.white,
+      this.backgroundColor = ColorUtils.scaffold,
       this.width = double.infinity})
       : super(key: key);
 

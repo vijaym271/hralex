@@ -1,6 +1,9 @@
 import 'package:college_bag/widgets/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/career-quote.dart';
+import '../widgets/career_job_list.dart';
+
 class CareerPage extends StatefulWidget {
   const CareerPage({super.key});
 
@@ -20,8 +23,18 @@ class _CareerPageState extends State<CareerPage> {
           IconButton(onPressed: () {}, icon: const Icon(Icons.filter_alt_sharp))
         ],
       ),
-      body: const Center(
-        child: Text('Career Page'),
+      body: Container(
+        padding: const EdgeInsets.only(
+            left: 10.0, bottom: 4.0, top: 4.0, right: 4.0),
+        child: Column(
+          children: [
+            CareerQuote(),
+            SizedBox(height: 16),
+            Center(
+              child: CareerJobList(),
+            ),
+          ],
+        ),
       ),
     );
   }

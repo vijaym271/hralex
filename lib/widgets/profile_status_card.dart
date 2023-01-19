@@ -22,9 +22,16 @@ class ProfileStatusCard extends StatelessWidget {
             color: ColorUtils.appPurple,
             borderRadius: BorderRadius.circular(30.0)),
         child: Text.rich(
-          TextSpan(text: '55', children: [
-            TextSpan(text: '%', style: TextStyle(fontSize: FontUtils.fs10))
-          ]),
+          TextSpan(
+              text: '55',
+              style: TextStyle(fontSize: FontUtils.fs18),
+              children: [
+                TextSpan(
+                    text: ' %',
+                    style: TextStyle(
+                        fontSize: FontUtils.fs10,
+                        fontWeight: FontWeight.normal))
+              ]),
           style: TextStyle(
               color: ColorUtils.white,
               fontSize: FontUtils.fs16,
@@ -42,15 +49,15 @@ class ProfileStatusCard extends StatelessWidget {
           padding: const EdgeInsets.only(left: 10.0, bottom: 4.0, top: 4.0),
           child: Text(
             'Profile completed',
-            style: TextStyle(fontSize: FontUtils.fs15),
+            style: TextStyle(fontSize: FontUtils.fs13),
           ),
         ),
         LinearPercentIndicator(
-          lineHeight: 10.0,
+          lineHeight: 8.0,
           barRadius: const Radius.circular(12.0),
           percent: 0.5,
-          backgroundColor: ColorUtils.blue.withOpacity(0.2),
-          progressColor: ColorUtils.blue,
+          backgroundColor: ColorUtils.profilePrograBar.withOpacity(0.2),
+          progressColor: ColorUtils.profilePrograBar,
         ),
         Padding(
           padding: const EdgeInsets.only(right: 10.0, top: 4.0),
@@ -60,7 +67,9 @@ class ProfileStatusCard extends StatelessWidget {
               Text(
                 'Update Profile',
                 style: TextStyle(
-                    color: ColorUtils.primary, fontWeight: FontUtils.fwBold),
+                    color: ColorUtils.primary,
+                    fontWeight: FontUtils.fwBold,
+                    fontSize: FontUtils.fs13),
               ),
               const Icon(
                 Icons.arrow_forward_ios,
@@ -81,13 +90,13 @@ class ProfileStatusCard extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
           color: ColorUtils.white,
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(5.0),
           boxShadow: [
             BoxShadow(
-                color: ColorUtils.grey.withOpacity(0.2),
-                blurRadius: 0.5,
+                color: ColorUtils.boxShadow.withOpacity(0.2),
+                blurRadius: 1.5,
                 spreadRadius: 0.1,
-                offset: const Offset(3, 3)),
+                offset: const Offset(1, 2)),
           ]),
       child: Row(
           children: [_renderAvatar(), Expanded(child: _renderProgressBar())]),
