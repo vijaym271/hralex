@@ -16,7 +16,7 @@ class _ScorePageState extends State<ScorePage> {
       padding: const EdgeInsets.only(left: 15, right: 15),
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("../../assets/images/graph-bg.png"),
+          image: AssetImage("assets/images/graph-bg.png"),
           fit: BoxFit.cover,
         ),
       ),
@@ -33,7 +33,7 @@ class _ScorePageState extends State<ScorePage> {
                   margin: const EdgeInsets.only(top: 60),
                   child: const CircleAvatar(
                     radius: 32,
-                    backgroundImage: NetworkImage("assets/images/user-ic.png"),
+                    backgroundImage: AssetImage("assets/images/user-ic.png"),
                   ),
                 ),
               ),

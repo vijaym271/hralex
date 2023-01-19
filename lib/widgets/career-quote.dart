@@ -27,17 +27,13 @@ class _CareerQuoteState extends State<CareerQuote> {
                 offset: const Offset(1, 2)),
           ]),
       child: Row(children: [
-        Container(
-          child: Image.asset('../assets/images/careers-img.png'),
-        ),
+        Image.asset('assets/images/careers-img.png'),
         Align(
           alignment: Alignment.topRight,
-          child: Container(
-            child: Image.asset(
-              '../assets/images/career-quotes.png',
-              height: 40,
-              width: 40,
-            ),
+          child: Image.asset(
+            'assets/images/career-quotes.png',
+            height: 40,
+            width: 40,
           ),
         ),
         Expanded(

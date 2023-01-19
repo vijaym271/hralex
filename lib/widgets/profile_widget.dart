@@ -15,7 +15,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
       child: const CircleAvatar(
         radius: 18,
         child: CircleAvatar(
-          backgroundImage: NetworkImage("../assets/images/user-ic.png"),
+          backgroundImage: AssetImage("assets/images/user-ic.png"),
         ),
       ),
     );

@@ -95,8 +95,6 @@ class _UserLayoutState extends State<UserLayout>
       onWillPop: () async {
         final NavigatorState navigator =
             navigatorKeys[selectedIndex].currentState!;
-        print('navigator -->${navigator}');
-        print('navigator.canPop() -->${navigator.canPop()}');
         if (!navigator.canPop()) {
           return true;
         }
@@ -126,7 +124,7 @@ class _UserLayoutState extends State<UserLayout>
         ),
         bottomNavigationBar: NavigationBar(
           backgroundColor: ColorUtils.white,
-          height: 60.0,
+          height: 65.0,
           selectedIndex: selectedIndex,
           onDestinationSelected: (int index) {
             setState(() {
