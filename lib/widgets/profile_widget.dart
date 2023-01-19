@@ -14,8 +14,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
       margin: const EdgeInsets.all(9.0),
       child: const CircleAvatar(
         radius: 18,
-        child: ClipOval(
-          child: FlutterLogo(),
+        child: CircleAvatar(
+          backgroundImage: NetworkImage("../assets/images/user-ic.png"),
         ),
       ),
     );

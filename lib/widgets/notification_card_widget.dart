@@ -38,7 +38,7 @@ class NotificationCard extends StatelessWidget {
     Map<String, Color> color = colors[index % colors.length];
     return Container(
       margin: const EdgeInsets.only(right: 12.0),
-      width: 120.0,
+      width: 160.0,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5.0),
           color: color['bg']!.withOpacity(1)),

@@ -32,7 +32,8 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(
         title,
-        style: titleStyle ?? const TextStyle(color: ColorUtils.font),
+        style:
+            titleStyle ?? const TextStyle(color: ColorUtils.font, fontSize: 15),
       ),
       centerTitle: true,
       leading: leadingWidget ??
