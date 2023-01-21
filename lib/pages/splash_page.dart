@@ -29,17 +29,17 @@ class _LandingPageState extends State<LandingPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  "Let's Get\nStarted",
+                  "Our mission is to \ninterview you instantly",
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      height: 1,
-                      fontSize: 63,
+                      height: 1.2,
+                      fontSize: 32,
                       fontWeight: FontUtils.fwBold,
                       color: ColorUtils.white),
                 ),
                 const SizedBox(height: 12.0),
                 Text(
-                  "Find placements, jobs, study abroad,\ncareer counselling and many more...",
+                  "Companies apply to you and get direct access to hiring managers.",
                   style: TextStyle(
                       color: ColorUtils.white, fontSize: FontUtils.fs18),
                 ),
