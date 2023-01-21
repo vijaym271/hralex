@@ -52,7 +52,9 @@ class _LandingPageState extends State<LandingPage> {
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: 10.0),
                     alignment: Alignment.center,
-                    color: ColorUtils.white,
+                    decoration: BoxDecoration(
+                        color: ColorUtils.white,
+                        borderRadius: BorderRadius.circular(30.0)),
                     child: Text(
                       'Join Now',
                       style: TextStyle(
