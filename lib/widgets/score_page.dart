@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gauge_indicator/gauge_indicator.dart';
-
 import '../utils/color_utils.dart';
 
 class ScorePage extends StatefulWidget {
-  ScorePage({Key? key}) : super(key: key);
+  const ScorePage({Key? key}) : super(key: key);
 
   @override
   State<ScorePage> createState() => _ScorePageState();
@@ -66,63 +65,50 @@ class _ScorePageState extends State<ScorePage> {
                     )),
               ),
               Center(
-                child: Container(
-                  child: SizedBox(
-                      height: 160,
-                      child: Container(
-                          padding: const EdgeInsets.only(left: 25, right: 25),
-                          child: Container(
-                            child: AnimatedRadialGauge(
-                              duration: const Duration(seconds: 2),
-                              curve: Curves.linear,
-                              value: value,
-                              progressBar: const GaugeRoundedProgressBar(
-                                  color: Colors.transparent),
-                              axis: GaugeAxis(
-                                  segments: const [
-                                    GaugeSegment(
-                                        from: 0,
-                                        to: 15,
-                                        color: Color(0xFFD93551)),
-                                    GaugeSegment(
-                                        from: 15,
-                                        to: 40,
-                                        color: Color(0xFFFA704E)),
-                                    GaugeSegment(
-                                        from: 40,
-                                        to: 65,
-                                        color: Color(0xFFFDC50A)),
-                                    GaugeSegment(
-                                        from: 65,
-                                        to: 85,
-                                        color: Color(0xFF34C177)),
-                                    GaugeSegment(
-                                        from: 85,
-                                        to: 100,
-                                        color: Color(0xFF239480)),
-                                  ],
-                                  min: 0,
-                                  max: 100,
-                                  degrees: 180,
-                                  style: const GaugeAxisStyle(
-                                      thickness: 20,
-                                      background: Color(0xFFDFE2EC),
-                                      blendColors: false),
-                                  pointer: CirclePointer(
-                                      radius: 12,
-                                      border: const GaugePointerBorder(
-                                          color: Colors.white, width: 6.0),
-                                      backgroundColor: Colors.transparent)),
-                            ),
-                          ))),
-                ),
+                child: SizedBox(
+                    height: 160,
+                    child: Container(
+                        padding: const EdgeInsets.only(left: 25, right: 25),
+                        child: AnimatedRadialGauge(
+                          duration: const Duration(seconds: 2),
+                          curve: Curves.linear,
+                          value: value,
+                          progressBar: const GaugeRoundedProgressBar(
+                              color: Colors.transparent),
+                          axis: GaugeAxis(
+                              segments: const [
+                                GaugeSegment(
+                                    from: 0, to: 15, color: Color(0xFFD93551)),
+                                GaugeSegment(
+                                    from: 15, to: 40, color: Color(0xFFFA704E)),
+                                GaugeSegment(
+                                    from: 40, to: 65, color: Color(0xFFFDC50A)),
+                                GaugeSegment(
+                                    from: 65, to: 85, color: Color(0xFF34C177)),
+                                GaugeSegment(
+                                    from: 85,
+                                    to: 100,
+                                    color: Color(0xFF239480)),
+                              ],
+                              min: 0,
+                              max: 100,
+                              degrees: 180,
+                              style: const GaugeAxisStyle(
+                                  thickness: 20,
+                                  background: Color(0xFFDFE2EC),
+                                  blendColors: false),
+                              pointer: CirclePointer(
+                                  radius: 12,
+                                  border: const GaugePointerBorder(
+                                      color: Colors.white, width: 6.0),
+                                  backgroundColor: Colors.transparent)),
+                        ))),
               ),
             ],
           ),
           const SizedBox(height: 18),
           Center(
             child: SizedBox(
-              height: 40,
               width: double.infinity,
               child: ElevatedButton(
                 style: ColorUtils.dullraisedButtonStyle,

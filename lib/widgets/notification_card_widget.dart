@@ -3,33 +3,28 @@ import 'package:college_bag/widgets/shape_painter.dart';
 import 'package:flutter/material.dart';
 
 class NotificationCard extends StatelessWidget {
-  NotificationCard({super.key, this.index = 0, this.icon});
+  NotificationCard({super.key, this.index = 0, this.icon, this.data});
   final int index;
   final IconData? icon;
-  final List<Map<String, dynamic>> colors = const [
+  final Map<String, dynamic>? data;
+  final List<Map<String, Color>> colors = const [
     {
       'bg': Color(0xffFFF6F3),
       'title': Color(0xffD46F00),
       'icon': Color(0xffD46F00),
       'iconBg': Color(0xffFFECE6),
-      'heading': "Jobs",
-      'date': "21-Jan-2023",
     },
     {
       'bg': Color(0xffE8F9FE),
       'title': Color(0xff00AAC4),
       'icon': Color(0xff00AAC4),
       'iconBg': Color(0xffDBFAFE),
-      'heading': "Career",
-      'date': "20-Jan-2023",
     },
     {
       'bg': Color(0xffe7edff),
       'title': Color(0xff4E84FF),
       'icon': Color(0xff4E84FF),
       'iconBg': Color(0xffe7edff),
-      'heading': "Podcast",
-      'date': "19-Jan-2023",
     },
   ];
   final List<CustomPainter> shapes = [
@@ -47,7 +42,7 @@ class NotificationCard extends StatelessWidget {
       width: 160.0,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5.0),
-          color: color['bg']!.withOpacity(1)),
+          color: (color['bg'] as Color).withOpacity(1)),
       child: CustomPaint(
           painter: shapes[index % shapes.length],
           child: Column(
@@ -73,14 +68,14 @@ class NotificationCard extends StatelessWidget {
                 height: 12.0,
               ),
               Text(
-                color['date'],
+                data?['date'],
                 style: TextStyle(fontSize: FontUtils.fs10),
               ),
               const SizedBox(
                 height: 4.0,
               ),
               Text(
-                color['heading'],
+                data?['heading'],
                 style: TextStyle(
                     fontWeight: FontUtils.fwBold, color: color['title']),
               ),

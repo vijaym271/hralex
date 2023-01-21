@@ -1,6 +1,6 @@
 import 'package:college_bag/utils/color_utils.dart';
 import 'package:college_bag/utils/font_utils.dart';
-import 'package:college_bag/widgets/showDialogWid.dart';
+import 'package:college_bag/widgets/showdialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -47,12 +47,6 @@ class _ProfileStatusCardState extends State<ProfileStatusCard> {
     );
   }
 
-  Widget column() {
-    return Column(
-      children: [Text("data")],
-    );
-  }
-
   Widget _renderProgressBar(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,8 +70,8 @@ class _ProfileStatusCardState extends State<ProfileStatusCard> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              TextButton(
-                onPressed: () => showModalLoader(context, "Profile"),
+              InkWell(
+                onTap: () => showModalLoader(context, "Profile"),
                 child: Row(
                   children: [
                     Text(

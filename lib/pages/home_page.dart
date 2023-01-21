@@ -17,9 +17,32 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Widget scoreHrAlex() {
-    return ScorePage();
-  }
+  List<Map<String, dynamic>> notifications = [
+    {
+      'heading': "Jobs",
+      'date': "21-Jan-2023",
+    },
+    {
+      'heading': "Career",
+      'date': "20-Jan-2023",
+    },
+    {
+      'heading': "Podcast",
+      'date': "19-Jan-2023",
+    },
+    {
+      'heading': "Jobs",
+      'date': "21-Jan-2023",
+    },
+    {
+      'heading': "Career",
+      'date': "20-Jan-2023",
+    },
+    {
+      'heading': "Podcast",
+      'date': "19-Jan-2023",
+    },
+  ];
 
   Widget cardHeader({required String title, bool enableViewAll = true}) {
     return Padding(
@@ -58,10 +81,11 @@ class _HomePageState extends State<HomePage> {
           child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: notifications.length,
               itemBuilder: (context, index) {
                 return NotificationCard(
                   index: index,
+                  data: notifications[index],
                   icon: Icons.notification_add,
                 );
               }),
@@ -107,7 +131,7 @@ class _HomePageState extends State<HomePage> {
         margin: const EdgeInsets.only(left: 14.0),
         child: ListView(
           children: [
-            scoreHrAlex(),
+            const ScorePage(),
             const SizedBox(
               height: 18.0,
             ),
