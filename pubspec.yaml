@@ -41,6 +41,7 @@ dependencies:
   gauge_indicator: ^0.3.3
   percent_indicator: ^4.2.2
   dotted_border: ^2.0.0+3
+  url_launcher: ^6.1.8
 
 dev_dependencies:
   flutter_test:

@@ -148,6 +148,7 @@ class _PodcastPageState extends State<PodcastPage> {
             itemCount: data.length,
             itemBuilder: (context, index) {
               Map<String, dynamic> item = data[index];
+              print("item --> $item");
               Map<String, dynamic> color = colors[index % colors.length];
               return CardWidget(
                 titleWidget: Column(

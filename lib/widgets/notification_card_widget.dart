@@ -6,24 +6,30 @@ class NotificationCard extends StatelessWidget {
   NotificationCard({super.key, this.index = 0, this.icon});
   final int index;
   final IconData? icon;
-  final List<Map<String, Color>> colors = const [
+  final List<Map<String, dynamic>> colors = const [
     {
       'bg': Color(0xffFFF6F3),
       'title': Color(0xffD46F00),
       'icon': Color(0xffD46F00),
-      'iconBg': Color(0xffFFECE6)
+      'iconBg': Color(0xffFFECE6),
+      'heading': "Jobs",
+      'date': "21-Jan-2023",
     },
     {
       'bg': Color(0xffE8F9FE),
       'title': Color(0xff00AAC4),
       'icon': Color(0xff00AAC4),
-      'iconBg': Color(0xffDBFAFE)
+      'iconBg': Color(0xffDBFAFE),
+      'heading': "Career",
+      'date': "20-Jan-2023",
     },
     {
       'bg': Color(0xffe7edff),
       'title': Color(0xff4E84FF),
       'icon': Color(0xff4E84FF),
-      'iconBg': Color(0xffe7edff)
+      'iconBg': Color(0xffe7edff),
+      'heading': "Podcast",
+      'date': "19-Jan-2023",
     },
   ];
   final List<CustomPainter> shapes = [
@@ -35,7 +41,7 @@ class NotificationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Map<String, Color> color = colors[index % colors.length];
+    Map<String, dynamic> color = colors[index % colors.length];
     return Container(
       margin: const EdgeInsets.only(right: 12.0),
       width: 160.0,
@@ -67,14 +73,14 @@ class NotificationCard extends StatelessWidget {
                 height: 12.0,
               ),
               Text(
-                '03-Jan-2023',
+                color['date'],
                 style: TextStyle(fontSize: FontUtils.fs10),
               ),
               const SizedBox(
                 height: 4.0,
               ),
               Text(
-                'Study Abroad',
+                color['heading'],
                 style: TextStyle(
                     fontWeight: FontUtils.fwBold, color: color['title']),
               ),

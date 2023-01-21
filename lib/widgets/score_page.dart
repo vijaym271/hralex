@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gauge_indicator/gauge_indicator.dart';
 
+import '../utils/color_utils.dart';
+
 class ScorePage extends StatefulWidget {
   ScorePage({Key? key}) : super(key: key);
 
@@ -24,7 +26,7 @@ class _ScorePageState extends State<ScorePage> {
         children: [
           const Text("HRAlex Score",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
-          const Text("way to reach"),
+          // const Text("way to reach"),
           const SizedBox(height: 12),
           Stack(
             children: [
@@ -32,7 +34,7 @@ class _ScorePageState extends State<ScorePage> {
                 child: Container(
                   margin: const EdgeInsets.only(top: 60),
                   child: const CircleAvatar(
-                    radius: 32,
+                    radius: 40,
                     backgroundImage: AssetImage("assets/images/user-ic.png"),
                   ),
                 ),
@@ -56,9 +58,9 @@ class _ScorePageState extends State<ScorePage> {
                         )
                       ],
                     ),
-                    margin: const EdgeInsets.only(top: 115),
+                    margin: const EdgeInsets.only(top: 135),
                     child: const Text(
-                      "70",
+                      "700 / 999 ",
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                     )),
@@ -117,7 +119,22 @@ class _ScorePageState extends State<ScorePage> {
               ),
             ],
           ),
-          SizedBox(height: 18),
+          const SizedBox(height: 18),
+          Center(
+            child: SizedBox(
+              height: 40,
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ColorUtils.dullraisedButtonStyle,
+                onPressed: () {},
+                child: const Text(
+                  'View Score',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 14),
         ],
       ),
     );

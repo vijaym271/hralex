@@ -21,4 +21,25 @@ class ColorUtils {
   static const Color profilePrograBar = Color(0xff00B8FF);
   static const Color boxShadow = Color(0xffC0C0C0);
   static const Color borderBlue = Color(0xffDDECFF);
+
+  static ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
+    foregroundColor: ColorUtils.white,
+    backgroundColor: ColorUtils.primary,
+    // minimumSize: Size(88, 36),
+    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(20)),
+    ),
+  );
+
+  static ButtonStyle dullraisedButtonStyle = ElevatedButton.styleFrom(
+    foregroundColor: ColorUtils.primary,
+    backgroundColor: Color(0xFFE1E9FF),
+    elevation: 0,
+    // minimumSize: Size(88, 36),
+    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(30)),
+    ),
+  );
 }

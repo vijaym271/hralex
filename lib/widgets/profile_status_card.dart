@@ -1,12 +1,18 @@
 import 'package:college_bag/utils/color_utils.dart';
 import 'package:college_bag/utils/font_utils.dart';
+import 'package:college_bag/widgets/showDialogWid.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:dotted_border/dotted_border.dart';
 
-class ProfileStatusCard extends StatelessWidget {
+class ProfileStatusCard extends StatefulWidget {
   const ProfileStatusCard({super.key});
 
+  @override
+  State<ProfileStatusCard> createState() => _ProfileStatusCardState();
+}
+
+class _ProfileStatusCardState extends State<ProfileStatusCard> {
   Widget _renderAvatar() {
     return DottedBorder(
       color: ColorUtils.appPurple.withOpacity(0.3),
@@ -41,7 +47,13 @@ class ProfileStatusCard extends StatelessWidget {
     );
   }
 
-  Widget _renderProgressBar() {
+  Widget column() {
+    return Column(
+      children: [Text("data")],
+    );
+  }
+
+  Widget _renderProgressBar(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -64,18 +76,25 @@ class ProfileStatusCard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(
-                'Update Profile',
-                style: TextStyle(
-                    color: ColorUtils.primary,
-                    fontWeight: FontUtils.fwBold,
-                    fontSize: FontUtils.fs13),
+              TextButton(
+                onPressed: () => showModalLoader(context, "Profile"),
+                child: Row(
+                  children: [
+                    Text(
+                      'Update Profile',
+                      style: TextStyle(
+                          color: ColorUtils.primary,
+                          fontWeight: FontUtils.fwBold,
+                          fontSize: FontUtils.fs13),
+                    ),
+                    const Icon(
+                      Icons.arrow_forward_ios,
+                      size: 14.0,
+                      color: ColorUtils.primary,
+                    )
+                  ],
+                ),
               ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                size: 14.0,
-                color: ColorUtils.primary,
-              )
             ],
           ),
         )
@@ -98,8 +117,10 @@ class ProfileStatusCard extends StatelessWidget {
                 spreadRadius: 0.1,
                 offset: const Offset(1, 2)),
           ]),
-      child: Row(
-          children: [_renderAvatar(), Expanded(child: _renderProgressBar())]),
+      child: Row(children: [
+        _renderAvatar(),
+        Expanded(child: _renderProgressBar(context))
+      ]),
     );
   }
 }
