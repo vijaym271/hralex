@@ -20,4 +20,5 @@ class ColorUtils {
   static const Color scaffold = Color(0xffFAFAFA);
   static const Color profilePrograBar = Color(0xff00B8FF);
   static const Color boxShadow = Color(0xffC0C0C0);
+  static const Color borderBlue = Color(0xffDDECFF);
 }

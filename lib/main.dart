@@ -1,5 +1,5 @@
 import 'package:college_bag/config/theme_config.dart';
-import 'package:college_bag/layouts/user_layout.dart';
+import 'package:college_bag/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const UserLayout(),
+      home: const LandingPage(),
       theme: theme(context),
     );
   }

@@ -9,9 +9,9 @@ ThemeData theme(BuildContext context) {
           backgroundColor: ColorUtils.white,
           elevation: 0.0,
           foregroundColor: ColorUtils.font),
-      fontFamily: 'Aganè',
+      fontFamily: 'OpenSans',
       textTheme: GoogleFonts.openSansTextTheme(
-        Theme.of(context).textTheme,
+        Theme.of(context).textTheme.apply(bodyColor: ColorUtils.font),
       ),
       navigationBarTheme: NavigationBarThemeData(
           indicatorColor: ColorUtils.blue,
