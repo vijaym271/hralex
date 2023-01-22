@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-Future<void> showModalLoader(BuildContext context, heading,
-    {Widget? content}) async {
-  Future<void>? _launched;
+Future<void> showModalPopup(BuildContext context, heading,
+    {Widget? content, bool hideOk = false}) async {
   final Uri toLaunch = Uri(scheme: 'https', host: 'www.hralex.com', path: '');
-  Future<void> _launchInWebViewWithoutDomStorage(Uri url) async {
+
+  Future<void> launchInWebViewWithoutDomStorage(Uri url) async {
     if (!await launchUrl(
       url,
       mode: LaunchMode.inAppWebView,
@@ -20,7 +20,7 @@ Future<void> showModalLoader(BuildContext context, heading,
     builder: (BuildContext context) => AlertDialog(
       title: Text(heading),
       content: content ??
-          Container(
+          SizedBox(
             height: 100,
             child: Column(
               children: [
@@ -28,20 +28,7 @@ Future<void> showModalLoader(BuildContext context, heading,
                     "Please use a web browser link for editing your profile, it's more user friendly. "),
                 InkWell(
                     child: const Text('Open Browser'),
-                    onTap: () => _launched =
-                        _launchInWebViewWithoutDomStorage(toLaunch)),
-                // TextButton(
-                //     onPressed: () {
-                //       onTap:
-                //       () {
-                //         Clipboard.setData(new ClipboardData(text: "Your Copy text"))
-                //             .then((_) {
-                //           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                //               content: Text('Copied to your clipboard !')));
-                //         });
-                //       };
-                //     },
-                //     child: Text("data"))
+                    onTap: () => launchInWebViewWithoutDomStorage(toLaunch)),
               ],
             ),
           ),
@@ -50,9 +37,12 @@ Future<void> showModalLoader(BuildContext context, heading,
           onPressed: () => Navigator.pop(context, 'Cancel'),
           child: const Text('Cancel'),
         ),
-        TextButton(
-          onPressed: () => Navigator.pop(context, 'OK'),
-          child: const Text('OK'),
+        Visibility(
+          visible: !hideOk,
+          child: TextButton(
+            onPressed: () => Navigator.pop(context, 'OK'),
+            child: const Text('OK'),
+          ),
         ),
       ],
     ),

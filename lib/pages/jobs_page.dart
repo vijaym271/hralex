@@ -23,11 +23,8 @@ class _JobsPageState extends State<JobsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(
+      appBar: const AppBarWidget(
         title: 'Jobs',
-        actionsWidget: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.filter_alt_sharp))
-        ],
       ),
       body: Container(
         margin: const EdgeInsets.only(left: 10.0, right: 10.0, top: 8.0),

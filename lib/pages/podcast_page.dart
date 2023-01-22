@@ -1,8 +1,10 @@
+import 'package:college_bag/pages/podcast_details.dart';
 import 'package:college_bag/utils/color_utils.dart';
 import 'package:college_bag/utils/font_utils.dart';
 import 'package:college_bag/widgets/app_bar_widget.dart';
 import 'package:college_bag/widgets/avatar_widget.dart';
 import 'package:college_bag/widgets/card_widget.dart';
+import 'package:college_bag/widgets/play_btn_widget.dart';
 import 'package:flutter/material.dart';
 
 class PodcastPage extends StatefulWidget {
@@ -86,32 +88,6 @@ class _PodcastPageState extends State<PodcastPage> {
     }
   ];
 
-  Widget _renderPlayBtn(String? text) {
-    return Container(
-      width: 75.0,
-      padding: const EdgeInsets.all(1.0),
-      decoration: BoxDecoration(
-          color: ColorUtils.primary.withOpacity(0.05),
-          borderRadius: BorderRadius.circular(30.0),
-          border: Border.all(color: ColorUtils.primary, width: 1.5)),
-      child: Row(
-        children: [
-          const Icon(
-            Icons.play_circle,
-            size: 25.0,
-            color: ColorUtils.primary,
-          ),
-          const SizedBox(width: 4.0),
-          Text(text!,
-              style: TextStyle(
-                  color: ColorUtils.primary,
-                  fontSize: FontUtils.fs10,
-                  fontWeight: FontUtils.fw600))
-        ],
-      ),
-    );
-  }
-
   Widget _renderContent(Map<String, dynamic> item) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -148,51 +124,57 @@ class _PodcastPageState extends State<PodcastPage> {
             itemCount: data.length,
             itemBuilder: (context, index) {
               Map<String, dynamic> item = data[index];
-              print("item --> $item");
               Map<String, dynamic> color = colors[index % colors.length];
-              return CardWidget(
-                titleWidget: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      item['title'],
-                      style: TextStyle(
-                          fontWeight: FontUtils.fwBold,
-                          fontSize: FontUtils.fs17),
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.access_time_filled,
-                          size: 15.0,
-                          color: ColorUtils.font.withOpacity(0.6),
-                        ),
-                        const SizedBox(width: 5.0),
-                        Text(
-                          item['lastSeen'],
-                          style: TextStyle(
-                              color: ColorUtils.font.withOpacity(0.6),
-                              fontSize: FontUtils.fs12),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                leadings: AvatarWidget(
-                  backgroundColor:
-                      (color['avatarColor'] as Color).withOpacity(0.1),
-                  child: Text(
-                    item['title'].toString().substring(0, 1),
-                    style: TextStyle(
-                        color: color['avatarColor'],
-                        fontWeight: FontUtils.fwBold,
-                        fontSize: FontUtils.fs18),
+              return InkWell(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PodcastDetails(
+                            details: item, borderTheme: color['avatarColor']))),
+                child: CardWidget(
+                  titleWidget: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        item['title'],
+                        style: TextStyle(
+                            fontWeight: FontUtils.fwBold,
+                            fontSize: FontUtils.fs17),
+                      ),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.access_time_filled,
+                            size: 15.0,
+                            color: ColorUtils.font.withOpacity(0.6),
+                          ),
+                          const SizedBox(width: 5.0),
+                          Text(
+                            item['lastSeen'],
+                            style: TextStyle(
+                                color: ColorUtils.font.withOpacity(0.6),
+                                fontSize: FontUtils.fs12),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
+                  leadings: AvatarWidget(
+                    backgroundColor:
+                        (color['avatarColor'] as Color).withOpacity(0.1),
+                    child: Text(
+                      item['title'].toString().substring(0, 1),
+                      style: TextStyle(
+                          color: color['avatarColor'],
+                          fontWeight: FontUtils.fwBold,
+                          fontSize: FontUtils.fs18),
+                    ),
+                  ),
+                  actions: PlayButton(text: item['videoDuration']),
+                  content: _renderContent(item),
+                  borderTheme: color['avatarColor'],
                 ),
-                actions: _renderPlayBtn(item['videoDuration']),
-                content: _renderContent(item),
-                borderTheme: color['avatarColor'],
               );
             }),
       ),
