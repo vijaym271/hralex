@@ -67,9 +67,6 @@ class _ProfileStatusCardState extends State<ProfileStatusCard> {
         children: [
           const Text(
               "Please use a web browser link for editing your profile, it's more user friendly. "),
-          InkWell(
-              child: const Text('Open Browser'),
-              onTap: () => launchInWebViewWithoutDomStorage(toLaunch)),
           const SizedBox(height: 12.0),
           Row(
             children: [
@@ -78,19 +75,28 @@ class _ProfileStatusCardState extends State<ProfileStatusCard> {
                 height: 30.0,
                 child: TextFormField(
                   decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      hintText: 'http://hralex.com/',
+                      enabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Color(0xFFE9E9E9), width: 1.0),
+                      ),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 8.0, vertical: 0.0)),
                 ),
               )),
               Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: InkWell(
-                  onTap: () {},
-                  child: Text(
-                    'Copy Link',
-                    style: TextStyle(
-                        color: ColorUtils.primary, fontSize: FontUtils.fs12),
+                padding: const EdgeInsets.only(left: 0.0),
+                child: Container(
+                  padding: const EdgeInsets.only(
+                      top: 6, bottom: 6, left: 8, right: 8),
+                  color: const Color(0xffEBF1FF),
+                  child: InkWell(
+                    onTap: () {},
+                    child: Text(
+                      'Copy Link',
+                      style: TextStyle(
+                          color: ColorUtils.primary, fontSize: FontUtils.fs12),
+                    ),
                   ),
                 ),
               )

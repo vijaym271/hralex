@@ -39,7 +39,7 @@ class _LandingPageState extends State<LandingPage> {
                 ),
                 const SizedBox(height: 12.0),
                 Text(
-                  "Companies apply to you and get direct access to hiring managers.",
+                  "Companies apply to interview you and get direct access to hiring managers.",
                   style: TextStyle(
                       color: ColorUtils.white.withOpacity(0.5),
                       fontSize: FontUtils.fs18),

@@ -130,7 +130,13 @@ class _HomePageState extends State<HomePage> {
         elevation: 0.0,
         actionsWidget: [
           IconButton(
-              onPressed: () {}, icon: const FaIcon(FontAwesomeIcons.bell))
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotificationPage()),
+                );
+              },
+              icon: const FaIcon(FontAwesomeIcons.bell))
         ],
       ),
       body: Container(
