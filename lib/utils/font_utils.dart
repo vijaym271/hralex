@@ -20,6 +20,7 @@ class FontUtils {
   static double? fs23 = 23.0;
   static double? fs24 = 24.0;
   static double? fs25 = 25.0;
+  static double? fs32 = 32.0;
 
   // font weight *************
   static FontWeight? fwBold = FontWeight.bold;

@@ -25,19 +25,20 @@ class ColorUtils {
   static ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
     foregroundColor: ColorUtils.white,
     backgroundColor: ColorUtils.primary,
+    elevation: 0,
     // minimumSize: Size(88, 36),
     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
     shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(20)),
+      borderRadius: BorderRadius.all(Radius.circular(30)),
     ),
   );
 
   static ButtonStyle dullraisedButtonStyle = ElevatedButton.styleFrom(
     foregroundColor: ColorUtils.primary,
-    backgroundColor: Color(0xFFE1E9FF),
+    backgroundColor: Color(0xFFE1E9FF).withOpacity(0.3),
     elevation: 0,
     // minimumSize: Size(88, 36),
-    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 13),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(30)),
     ),

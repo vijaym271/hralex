@@ -38,15 +38,18 @@ class _CareerPageState extends State<CareerPage> {
                 style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             CareerJobList(),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 style: ColorUtils.raisedButtonStyle,
                 onPressed: () {},
-                child: Text('Save'),
+                child: const Text(
+                  'Save',
+                  style: TextStyle(fontSize: 16),
+                ),
               ),
             )
           ],

@@ -33,7 +33,7 @@ class _TabBarWidgetState extends State<TabBarWidget>
     return Column(
       children: [
         Container(
-            height: 40.0,
+            height: 44.0,
             decoration: BoxDecoration(
                 color: ColorUtils.primary,
                 borderRadius: BorderRadius.circular(30.0)),

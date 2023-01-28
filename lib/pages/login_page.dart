@@ -46,16 +46,16 @@ class _LoginPageState extends State<LoginPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Welcome Back!',
+          'Welcome!',
           style: TextStyle(
-              fontSize: FontUtils.fs24,
+              fontSize: FontUtils.fs32,
               fontWeight: FontUtils.fwBold,
               color: ColorUtils.black),
         ),
-        const SizedBox(height: 8.0),
+        const SizedBox(height: 4.0),
         Text(
-          "Hello again, you've been missed!",
-          style: TextStyle(fontSize: FontUtils.fs18),
+          "HRAlex supports everything you need to crack your Interview",
+          style: TextStyle(fontSize: FontUtils.fs22),
         ),
         const SizedBox(height: 8.0),
         Container(

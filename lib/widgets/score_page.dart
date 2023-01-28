@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gauge_indicator/gauge_indicator.dart';
+import '../pages/view_score_page.dart';
 import '../utils/color_utils.dart';
 
 class ScorePage extends StatefulWidget {
@@ -112,10 +113,15 @@ class _ScorePageState extends State<ScorePage> {
               width: double.infinity,
               child: ElevatedButton(
                 style: ColorUtils.dullraisedButtonStyle,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ViewScorePage()),
+                  );
+                },
                 child: const Text(
                   'View Score',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
               ),
             ),

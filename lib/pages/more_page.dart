@@ -108,7 +108,7 @@ class _MorePageState extends State<MorePage> {
         Text(
           data['text'],
           style:
-              TextStyle(fontWeight: FontUtils.fwBold, fontSize: FontUtils.fs16),
+              TextStyle(fontWeight: FontUtils.fwBold, fontSize: FontUtils.fs14),
         ),
       ],
     );

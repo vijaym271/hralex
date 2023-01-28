@@ -44,7 +44,7 @@ class _CareerQuoteState extends State<CareerQuote> {
             softWrap: true,
             style: GoogleFonts.bellota(
               textStyle: const TextStyle(
-                  color: ColorUtils.font, letterSpacing: .9, fontSize: 16),
+                  color: ColorUtils.font, letterSpacing: .9, fontSize: 21),
             ),
           ),
         ))

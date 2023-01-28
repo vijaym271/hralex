@@ -1,4 +1,6 @@
+import 'package:college_bag/pages/event_page.dart';
 import 'package:college_bag/pages/jobs_page.dart';
+import 'package:college_bag/pages/notification_page.dart';
 import 'package:college_bag/utils/color_utils.dart';
 import 'package:college_bag/utils/font_utils.dart';
 import 'package:college_bag/widgets/app_bar_widget.dart';
@@ -44,7 +46,7 @@ class _HomePageState extends State<HomePage> {
     },
   ];
 
-  Widget cardHeader({required String title, bool enableViewAll = true}) {
+  Widget cardHeader({required String title, bool enableViewAll = true, navi}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0, right: 14.0),
       child: Row(
@@ -58,8 +60,8 @@ class _HomePageState extends State<HomePage> {
             visible: enableViewAll,
             child: InkWell(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => JobsPage()));
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => navi));
                 },
                 child: const Text(
                   'View all',
@@ -75,7 +77,10 @@ class _HomePageState extends State<HomePage> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        cardHeader(title: 'Notification', enableViewAll: true),
+        cardHeader(
+            title: 'Notification',
+            enableViewAll: true,
+            navi: NotificationPage()),
         SizedBox(
           height: 120.0,
           child: ListView.builder(
@@ -98,7 +103,8 @@ class _HomePageState extends State<HomePage> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        cardHeader(title: 'Upcoming Events', enableViewAll: true),
+        cardHeader(
+            title: 'Upcoming Events', enableViewAll: true, navi: EventPage()),
         SizedBox(
           height: 120.0,
           child: ListView.builder(

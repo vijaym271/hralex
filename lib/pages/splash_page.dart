@@ -41,7 +41,8 @@ class _LandingPageState extends State<LandingPage> {
                 Text(
                   "Companies apply to you and get direct access to hiring managers.",
                   style: TextStyle(
-                      color: ColorUtils.white, fontSize: FontUtils.fs18),
+                      color: ColorUtils.white.withOpacity(0.5),
+                      fontSize: FontUtils.fs18),
                 ),
                 const SizedBox(height: 22.0),
                 InkWell(
@@ -50,7 +51,7 @@ class _LandingPageState extends State<LandingPage> {
                       MaterialPageRoute(
                           builder: (context) => const LoginPage())),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         color: ColorUtils.white,
